@@ -1,0 +1,10 @@
+.App .app input{
+  border: 1px solid black;
+  padding: 5px;
+}
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px auto 50px;
+}
