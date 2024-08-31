@@ -6,6 +6,8 @@ const cors = require("cors")
 
 app.use(cors())
 
+app.use(express.json())
+
 app.listen(2000, function () {
     console.log("Port 2000 is running")
 })
@@ -17,15 +19,15 @@ var login = 'login'
 
 app.use(express.urlencoded({extended:true}))
 
-app.get("/login", function (req, res) {
-    if (req.query.username == username && req.query.password == password && req.query.conpass == password && req.query.conpass == conpass && req.query.login == login ) {
+app.post("/login", function (req, res) {
+    if (req.body.username == username && req.body.password == password && req.body.conpass == password && req.body.conpass == conpass && req.body.login == login ) {
         res.send(true)
-        console.log(req.query)
+        console.log(req.body)
         console.log("Login Successful")
     }
     else {
         res.send(false)
-        console.log(req.query)
+        console.log(req.body)
         console.log("Login Failed")
     }
 })

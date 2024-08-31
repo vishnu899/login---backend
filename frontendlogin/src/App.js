@@ -30,7 +30,7 @@ function App() {
   }
 
   function check() {
-    var logindetails = axios.get(`http://localhost:2000/login?username=${user}&password=${pass}&conpass=${conpass}&login=${login}`)
+    var logindetails = axios.post("http://localhost:2000/login",{"username":user,"password":pass,"conpass":conpass,"login":login})
     logindetails.then(function (data) {
       if (data.data == true) {
           navigate("/success")
